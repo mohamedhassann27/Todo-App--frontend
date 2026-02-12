@@ -10,6 +10,8 @@ import { useState } from 'react';
 // import { useNavigate } from 'react-router';
 
 function LoginPage() {
+    const host= `https://todo-app-backend-production-3bfc.up.railway.app/api`
+
     const [isLoading, setIsLoading]= useState(false)
     // const navigate= useNavigate()
     
@@ -25,7 +27,7 @@ function LoginPage() {
         // console.log(data);
         setIsLoading(true)
         try {
-            let {data: resData}= await axios.post('http://localhost:1337/api/auth/local', data)
+            let {data: resData}= await axios.post(`${host}/auth/local`, data)
             console.log(resData);
             toast.success("you will navigate to the home page after 2 seconds!", {duration:1500})
             localStorage.setItem('loggedInUser', JSON.stringify(resData))

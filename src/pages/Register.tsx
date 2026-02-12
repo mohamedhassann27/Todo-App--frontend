@@ -11,6 +11,7 @@ import { useNavigate } from 'react-router'
 
 
 function RegiserPage() {
+    const host= `https://todo-app-backend-production-3bfc.up.railway.app/api`
 
     const [isLoading,setIsLoading]= useState(false)
     const navigate= useNavigate()
@@ -26,7 +27,7 @@ function RegiserPage() {
     const onSubmit: SubmitHandler<IFormInput> = async(data) =>{
         setIsLoading(true)
         try {
-            let res=await axios.post('http://localhost:1337/api/auth/local/register', data);
+            let res=await axios.post(`${host}/auth/local/register`, data);
             console.log(res);
             toast.success('you will navigate to the login page after 2 seconds to login!', {duration:1500})
             setTimeout(() => {

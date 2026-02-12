@@ -6,6 +6,8 @@ import { useState, type ChangeEvent } from "react";
 
 function AllTodos() {
 
+    const host= `https://todo-app-backend-production-3bfc.up.railway.app/api`
+
     const loggedInUserString = localStorage.getItem("loggedInUser");
     const loggedInUser = loggedInUserString && JSON.parse(loggedInUserString);
 
@@ -16,7 +18,7 @@ function AllTodos() {
     const { isPending, error, data } = useQuery({
         queryKey: ["allTodos", page, pageSize, sortBy],
         queryFn: async () => {
-            let { data } = await axios.get(`http://localhost:1337/api/todos?pagination[pageSize]=${pageSize}&pagination[page]=${page}&sort[createdAt]=asc`, {headers: {Authorization: `Bearer ${loggedInUser.jwt}`}});
+            let { data } = await axios.get(`${host}/todos?pagination[pageSize]=${pageSize}&pagination[page]=${page}&sort[createdAt]=asc`, {headers: {Authorization: `Bearer ${loggedInUser.jwt}`}});
             console.log(data);
             
             return data;
@@ -32,7 +34,7 @@ function AllTodos() {
     }
 
 
-    if (isPending) return "Loading...";
+    if (isPending) return <h2 className="mt-10">Loading...</h2>;
     if (error) return <h2>An error has occurred: {error.message}</h2>
 
     return (

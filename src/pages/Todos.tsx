@@ -11,6 +11,8 @@ import { faker } from '@faker-js/faker';
 
 
 function Todos() {
+    const host= `https://todo-app-backend-production-3bfc.up.railway.app/api`
+
     const loggedInUserString = localStorage.getItem("loggedInUser");
     const loggedInUser = loggedInUserString && JSON.parse(loggedInUserString);
 
@@ -60,7 +62,7 @@ function Todos() {
     const { isPending, error, data } = useAuthenticatedQuery({
         //Custom Query Hook
         queryKey: ["todos", `${queryVersion}`],
-        url: "http://localhost:1337/api/users/me?populate=todos",
+        url: `${host}/users/me?populate=todos`,
         config: { headers: { Authorization: `Bearer ${loggedInUser.jwt}` } },
     });
 
@@ -117,7 +119,7 @@ function Todos() {
     const submitRemoveHandler= async(todo:ITodo)=>{
         setTodoToRemove(todo)
         try {
-            const res= await axios.delete(`http://localhost:1337/api/todos/${todo.documentId}`, {headers:{Authorization:`Bearer ${loggedInUser.jwt}`}})
+            const res= await axios.delete(`${host}/todos/${todo.documentId}`, {headers:{Authorization:`Bearer ${loggedInUser.jwt}`}})
             console.log(res);
             setTodoToRemove({id:0, title: "", description: ""})
             setQueryVersion(prev=>prev+1)
@@ -135,7 +137,7 @@ function Todos() {
         e.preventDefault()
         setIsLoading(true)
         try {
-            await axios.put(`http://localhost:1337/api/todos/${todoToEdit.documentId}`, {data: {title, description}}, {headers: {Authorization: `Bearer ${loggedInUser.jwt}`}})
+            await axios.put(`${host}/todos/${todoToEdit.documentId}`, {data: {title, description}}, {headers: {Authorization: `Bearer ${loggedInUser.jwt}`}})
             setQueryVersion(prev=>prev+1)
         } catch (error) {
             const errorObj= error as AxiosError
@@ -150,7 +152,7 @@ function Todos() {
         e.preventDefault()
         const {title, description}= postTodo
         try {
-            const res= await axios.post('http://localhost:1337/api/todos', {data:{title, description, user:loggedInUser.user.id}} , {headers: {Authorization:`Bearer ${loggedInUser.jwt}`}})
+            const res= await axios.post(`${host}/todos`, {data:{title, description, user:loggedInUser.user.id}} , {headers: {Authorization:`Bearer ${loggedInUser.jwt}`}})
             console.log(res);
             console.log(todoToPost);
             setQueryVersion(prev=>prev+1)
@@ -162,9 +164,9 @@ function Todos() {
     }
     
     const GenerateTodos= async()=>{
-        for(let i=0; i<60; i++){
+        for(let i=0; i<20; i++){
             try {
-                await axios.post('http://localhost:1337/api/todos', {data: {
+                await axios.post(`${host}/todos`, {data: {
                         title: faker.lorem.words(5),
                         description: faker.lorem.words(11),
                         user: loggedInUser.user.id
@@ -174,6 +176,7 @@ function Todos() {
                 console.log(error);
             }
         }
+        setQueryVersion(prev=>prev+1)
     }
 
 
@@ -205,7 +208,7 @@ function Todos() {
                 ))}
             </ul>
             ) : (
-            <h2>No todos yet!</h2>
+            <h2 className="mt-10">No todos yet!</h2>
             )}
         </div>
 
