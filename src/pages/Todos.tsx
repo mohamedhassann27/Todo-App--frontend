@@ -54,6 +54,7 @@ function Todos() {
     const [isRemoveModalOpen, setIsRemoveModalOpen] = useState(false);
     const [isPostModalOpen, setIsPostModalOpen] = useState(false);
     const [isLoading, setIsLoading]= useState(false)
+    const [isGenerateLoading, setIsGenerateLoading]= useState(false)
     const [queryVersion, setQueryVersion]= useState(1)
 
 
@@ -95,6 +96,7 @@ function Todos() {
     }
     function closePostModal(){
         setIsPostModalOpen(false)
+        setTodoToPost({id:0, title: "", description: ""})
     }
 
     // ------------------------handler------------------
@@ -164,7 +166,8 @@ function Todos() {
     }
     
     const GenerateTodos= async()=>{
-        for(let i=0; i<20; i++){
+        for(let i=0; i<10; i++){
+            setIsGenerateLoading(true)
             try {
                 await axios.post(`${host}/todos`, {data: {
                         title: faker.lorem.words(5),
@@ -174,6 +177,8 @@ function Todos() {
                 )
             } catch (error) {
                 console.log(error);
+            }finally{
+                setIsGenerateLoading(false)
             }
         }
         setQueryVersion(prev=>prev+1)
@@ -187,7 +192,7 @@ function Todos() {
         <div>
             <div className="w-100 mx-auto mt-7 flex space-x-5">
                 <Button onClick={openPosteModal} className="py-3">Create new todo</Button>
-                <Button onClick={GenerateTodos} className="py-3">Generate Fake todos</Button>
+                <Button onClick={GenerateTodos} className="py-3">{isGenerateLoading? "Generating...": "Generate Fake todos"}</Button>
             </div>
 
             {data.todos.length ? (
@@ -232,7 +237,7 @@ function Todos() {
         <ReactModal modalIsOpen={isRemoveModalOpen} closeModal={closeRemoveModal} >
             <div className="w-100">
                 <p className="text-black mb-4 text-lg">Are you sure you want to remove this Todo from your Store?</p>   
-                <p className="text-black mb-4 text-lg">Deleting this Todo will remove it permanently from your inventory. Any associated data, sales history, and other related information will also be deleted. Please make sure this is the intended action.</p>
+                <p className="text-black mb-4 text-lg">Deleting this Todo will remove it permanently from your inventory. Please make sure this is the intended action.</p>
             </div>
             <div className="flex gap-6 w-80 mx-auto mt-4" >
                 <Button onClick={()=>submitRemoveHandler(todoToRemove)} className="h-14 bg-red-500">{isLoading? 'loading...': 'Remove'}</Button>

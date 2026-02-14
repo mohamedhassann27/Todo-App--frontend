@@ -3,6 +3,7 @@ import axios from "axios";
 import type { ITodo } from "../interfaces";
 import Paginator from "../components/Paginator";
 import { useState, type ChangeEvent } from "react";
+import AllTodosSkeleton from "../components/AllTodosSkeleton";
 
 function AllTodos() {
 
@@ -34,11 +35,13 @@ function AllTodos() {
     }
 
 
-    if (isPending) return <h2 className="mt-10">Loading...</h2>;
+    // if (isPending) return <h2 className="mt-10">Loading...</h2>;
+    if (isPending) return <AllTodosSkeleton/>
     if (error) return <h2>An error has occurred: {error.message}</h2>
 
     return (
         <>
+        {/* <AllTodosSkeleton/> */}
             <div className="mt-2 flex justify-end gap-3 pr-3">
                 <select name="sorting" value={sortBy} onChange={onChangeSort} className="border px-4 py-2 rounded-md text-black bg-white">
                     <option selected disabled value="pageSize">Sort by</option>
