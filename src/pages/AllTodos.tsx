@@ -51,10 +51,10 @@
 
 //                 <select name="pageSize" value={pageSize} onChange={onChangePageSize} className="border px-4 py-2 rounded-md text-black bg-white">
 //                     <option selected disabled value="pageSize">Page Size</option>
-//                     <option value="8">5</option>
-//                     <option value="30">10</option>
-//                     <option value="50">20</option>
-//                     <option value="100">50</option>
+//                     <option value="5">5</option>
+//                     <option value="10">10</option>
+//                     <option value="20">20</option>
+//                     <option value="50">50</option>
 //                 </select>
 //             </div>
 
@@ -95,6 +95,7 @@
 
 
 
+
 // -----------------------Update UI only with claud-----------------------
 
 
@@ -112,7 +113,7 @@ function AllTodos() {
     const loggedInUser = loggedInUserString && JSON.parse(loggedInUserString);
 
     const [page, setPage] = useState<number>(1);
-    const [pageSize, setPageSize] = useState<number>(8);
+    const [pageSize, setPageSize] = useState<number>(5);
     const [sortBy, setSortBy] = useState<string>('asc');
 
     const { isPending, error, data } = useQuery({
@@ -172,10 +173,10 @@ function AllTodos() {
                 onChange={onChangePageSize}
                 className="bg-slate-800/50 border border-slate-700 rounded-lg px-4 py-2.5 text-slate-300 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all cursor-pointer"
                 >
-                <option value="8">8 per page</option>
-                <option value="30">30 per page</option>
+                <option value="5">5 per page</option>
+                <option value="10">10 per page</option>
+                <option value="20">20 per page</option>
                 <option value="50">50 per page</option>
-                <option value="100">100 per page</option>
                 </select>
             </div>
             </div>
