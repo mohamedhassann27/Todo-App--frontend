@@ -366,7 +366,7 @@
 
 
 
-// -----------------------Update UI only with claud-----------------------
+// -----------------------Update UI only with claude-----------------------
 
 
 import { useForm, type SubmitHandler } from 'react-hook-form';
@@ -375,7 +375,7 @@ import { registerSchema } from '../validation';
 import axios, { AxiosError } from 'axios';
 import toast, { Toaster } from 'react-hot-toast';
 import { useState } from 'react';
-import { useNavigate } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 
 interface IFormInput {
     username: string;
@@ -422,10 +422,10 @@ function RegisterPage() {
 
         {/* Register Card */}
         <div className="w-full max-w-md relative z-10">
-            <div className="bg-slate-800/50 backdrop-blur-xl border border-slate-700/50 rounded-2xl shadow-2xl shadow-purple-500/10 p-8 transform transition-all duration-300 hover:shadow-purple-500/20">
+            <div className="bg-slate-800/50 backdrop-blur-xl border border-slate-700/50 rounded-2xl shadow-2xl shadow-purple-500/10 px-8 py-5 transform transition-all duration-300 hover:shadow-purple-500/20">
             
             {/* Logo */}
-            <div className="flex items-center justify-center mb-8">
+            <div className="flex items-center justify-center mb-4">
                 <div className="relative">
                 <div className="absolute inset-0 bg-linear-to-r from-purple-500 to-pink-500 blur-lg opacity-50 rounded-full"></div>
                 <div className="relative bg-linear-to-r from-purple-500 to-pink-500 p-3 rounded-xl">
@@ -551,7 +551,7 @@ function RegisterPage() {
                 <button
                 type="submit"
                 disabled={isLoading}
-                className="relative w-full group mt-6"
+                className="relative w-full group mt-6 cursor-pointer"
                 >
                 <div className="absolute inset-0 bg-linear-to-r from-purple-600 to-pink-600 rounded-lg blur opacity-75 group-hover:opacity-100 transition-opacity duration-300"></div>
                 <div className="relative bg-linear-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-200 flex items-center justify-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed">
@@ -588,15 +588,15 @@ function RegisterPage() {
 
             {/* Login Link */}
             <div className="text-center">
-                <a
-                href="/login"
+                <Link
+                to="/login"
                 className="text-purple-400 hover:text-purple-300 font-medium transition-colors inline-flex items-center gap-1 group"
                 >
                 <span>Sign in instead</span>
                 <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
-                </a>
+                </Link>
             </div>
 
             </div>
