@@ -367,8 +367,6 @@
 
 
 // -----------------------Update UI only with claude-----------------------
-
-
 import { useForm, type SubmitHandler } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { registerSchema } from '../validation';
@@ -409,26 +407,26 @@ function RegisterPage() {
     };
 
     return (
-        <div className="min-h-screen bg-linear-to-br from-slate-900 via-purple-900 to-slate-900 flex items-center justify-center p-6 relative overflow-hidden">
+        <div className="min-h-screen bg-linear-to-br from-slate-900 via-indigo-900 to-slate-900 flex items-center justify-center p-6 relative overflow-hidden">
         {/* Animated background */}
         <div className="absolute inset-0 overflow-hidden">
-            <div className="absolute -top-40 -right-40 w-80 h-80 bg-purple-500/20 rounded-full blur-3xl animate-pulse"></div>
-            <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-blue-500/20 rounded-full blur-3xl animate-pulse" style={{animationDelay: '700ms'}}></div>
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-pink-500/10 rounded-full blur-3xl animate-pulse" style={{animationDelay: '1000ms'}}></div>
+            <div className="absolute -top-40 -right-40 w-80 h-80 bg-indigo-500/20 rounded-full blur-3xl animate-pulse"></div>
+            <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-violet-500/20 rounded-full blur-3xl animate-pulse" style={{animationDelay: '700ms'}}></div>
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse" style={{animationDelay: '1000ms'}}></div>
         </div>
 
         {/* Grid pattern */}
-        <div className="absolute inset-0 bg-[linear-linear(rgba(255,255,255,.02)_1px,transparent_1px),linear-linear(90deg,rgba(255,255,255,.02)_1px,transparent_1px)] bg-size[48px_48px] mask-[radial-linear(ellipse_80%_50%_at_50%_50%,#000,transparent)]"></div>
+        <div className="absolute inset-0 bg-[linear-linear(rgba(255,255,255,.02)_1px,transparent_1px),linear-linear(90deg,rgba(255,255,255,.02)_1px,transparent_1px)] bg-size-[48px_48px] mask-[radial-linear(ellipse_80%_50%_at_50%_50%,#000,transparent)]"></div>
 
         {/* Register Card */}
         <div className="w-full max-w-md relative z-10">
-            <div className="bg-slate-800/50 backdrop-blur-xl border border-slate-700/50 rounded-2xl shadow-2xl shadow-purple-500/10 px-8 py-5 transform transition-all duration-300 hover:shadow-purple-500/20">
+            <div className="bg-slate-800/50 backdrop-blur-xl border border-slate-700/50 rounded-2xl shadow-2xl shadow-indigo-500/10 p-8 transform transition-all duration-300 hover:shadow-indigo-500/20">
             
             {/* Logo */}
             <div className="flex items-center justify-center mb-4">
                 <div className="relative">
-                <div className="absolute inset-0 bg-linear-to-r from-purple-500 to-pink-500 blur-lg opacity-50 rounded-full"></div>
-                <div className="relative bg-linear-to-r from-purple-500 to-pink-500 p-3 rounded-xl">
+                <div className="absolute inset-0 bg-linear-to-r from-indigo-500 to-violet-500 blur-lg opacity-50 rounded-full"></div>
+                <div className="relative bg-linear-to-r from-indigo-500 to-violet-500 p-3 rounded-xl">
                     <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
                     </svg>
@@ -438,7 +436,7 @@ function RegisterPage() {
 
             {/* Header */}
             <div className="text-center mb-8">
-                <h1 className="text-3xl font-bold bg-linear-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent mb-2">
+                <h1 className="text-3xl font-bold bg-linear-to-r from-indigo-400 to-violet-400 bg-clip-text text-transparent mb-2">
                 Create Account
                 </h1>
                 <p className="text-slate-400 text-sm">
@@ -455,14 +453,14 @@ function RegisterPage() {
                     Username
                 </label>
                 <div className="relative group">
-                    <div className="absolute inset-0 bg-linear-to-r from-purple-500 to-pink-500 rounded-lg opacity-0 group-hover:opacity-10 blur transition-opacity duration-300"></div>
+                    <div className="absolute inset-0 bg-linear-to-r from-indigo-500 to-violet-500 rounded-lg opacity-0 group-hover:opacity-10 blur transition-opacity duration-300"></div>
                     <input
                     id="username"
                     type="text"
                     placeholder="johndoe"
                     className={`relative w-full bg-slate-900/50 border ${
                         errors.username ? 'border-red-500' : 'border-slate-700'
-                    } rounded-lg px-4 py-3 text-slate-200 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200`}
+                    } rounded-lg px-4 py-3 text-slate-200 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200`}
                     {...register('username')}
                     />
                     <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
@@ -487,7 +485,7 @@ function RegisterPage() {
                     Email Address
                 </label>
                 <div className="relative group">
-                    <div className="absolute inset-0 bg-linear-to-r from-purple-500 to-pink-500 rounded-lg opacity-0 group-hover:opacity-10 blur transition-opacity duration-300"></div>
+                    <div className="absolute inset-0 bg-linear-to-r from-indigo-500 to-violet-500 rounded-lg opacity-0 group-hover:opacity-10 blur transition-opacity duration-300"></div>
                     <input
                     id="email"
                     type="email"
@@ -495,7 +493,7 @@ function RegisterPage() {
                     autoComplete="username"
                     className={`relative w-full bg-slate-900/50 border ${
                         errors.email ? 'border-red-500' : 'border-slate-700'
-                    } rounded-lg px-4 py-3 text-slate-200 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200`}
+                    } rounded-lg px-4 py-3 text-slate-200 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200`}
                     {...register('email')}
                     />
                     <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
@@ -520,7 +518,7 @@ function RegisterPage() {
                     Password
                 </label>
                 <div className="relative group">
-                    <div className="absolute inset-0 bg-linear-to-r from-purple-500 to-pink-500 rounded-lg opacity-0 group-hover:opacity-10 blur transition-opacity duration-300"></div>
+                    <div className="absolute inset-0 bg-linear-to-r from-indigo-500 to-violet-500 rounded-lg opacity-0 group-hover:opacity-10 blur transition-opacity duration-300"></div>
                     <input
                     id="password"
                     type="password"
@@ -528,7 +526,7 @@ function RegisterPage() {
                     autoComplete="current-password"
                     className={`relative w-full bg-slate-900/50 border ${
                         errors.password ? 'border-red-500' : 'border-slate-700'
-                    } rounded-lg px-4 py-3 text-slate-200 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200`}
+                    } rounded-lg px-4 py-3 text-slate-200 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200`}
                     {...register('password')}
                     />
                     <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
@@ -553,8 +551,8 @@ function RegisterPage() {
                 disabled={isLoading}
                 className="relative w-full group mt-6 cursor-pointer"
                 >
-                <div className="absolute inset-0 bg-linear-to-r from-purple-600 to-pink-600 rounded-lg blur opacity-75 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <div className="relative bg-linear-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-200 flex items-center justify-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed">
+                <div className="absolute inset-0 bg-linear-to-r from-indigo-600 to-violet-600 rounded-lg blur opacity-75 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="relative bg-linear-to-r from-indigo-500 to-violet-500 hover:from-indigo-600 hover:to-violet-600 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-200 flex items-center justify-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed">
                     {isLoading ? (
                     <>
                         <svg className="animate-spin h-5 w-5" viewBox="0 0 24 24">
@@ -590,7 +588,7 @@ function RegisterPage() {
             <div className="text-center">
                 <Link
                 to="/login"
-                className="text-purple-400 hover:text-purple-300 font-medium transition-colors inline-flex items-center gap-1 group"
+                className="text-indigo-400 hover:text-indigo-300 font-medium transition-colors inline-flex items-center gap-1 group"
                 >
                 <span>Sign in instead</span>
                 <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -600,14 +598,6 @@ function RegisterPage() {
             </div>
 
             </div>
-
-            {/* Footer Text */}
-            <p className="text-center text-slate-500 text-sm mt-6">
-            By creating an account, you agree to our{' '}
-            <a href="/terms" className="text-slate-400 hover:text-slate-300 transition-colors">Terms</a>
-            {' '}and{' '}
-            <a href="/privacy" className="text-slate-400 hover:text-slate-300 transition-colors">Privacy Policy</a>
-            </p>
         </div>
 
         {/* Toast */}
@@ -623,7 +613,7 @@ function RegisterPage() {
                 padding: '12px 20px',
             },
             success: {
-                iconTheme: { primary: '#a855f7', secondary: '#fff' },
+                iconTheme: { primary: '#6366f1', secondary: '#fff' },
             },
             error: {
                 iconTheme: { primary: '#ef4444', secondary: '#fff' },

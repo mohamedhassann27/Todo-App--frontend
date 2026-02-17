@@ -438,7 +438,7 @@ function LoginPage() {
             </div>
 
             {/* Form */}
-            <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
+            <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
                 
                 {/* Email */}
                 <div className="space-y-2">
