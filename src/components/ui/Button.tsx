@@ -1,4 +1,4 @@
-import type { ButtonHTMLAttributes, ReactNode } from "react"
+import { memo, type ButtonHTMLAttributes, type ReactNode } from "react"
 
 interface IProps extends ButtonHTMLAttributes<HTMLButtonElement>{
     // title:string;
@@ -16,4 +16,4 @@ function Button({children, isLoading, className, ...rest}: IProps) {
     )
 }
 
-export default Button
+export default memo(Button)

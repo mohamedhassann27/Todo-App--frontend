@@ -108,7 +108,7 @@ import { useState, type ChangeEvent } from 'react';
 import AllTodosSkeleton from '../components/AllTodosSkeleton';
 
 function AllTodos() {
-    const host = `https://todo-app-backend-production-3bfc.up.railway.app/api`;
+    const host = `https://todo-app-backend-production-f00a.up.railway.app/api`;
     const loggedInUserString = localStorage.getItem('loggedInUser');
     const loggedInUser = loggedInUserString && JSON.parse(loggedInUserString);
 

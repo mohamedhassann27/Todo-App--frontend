@@ -382,7 +382,7 @@ interface IFormInput {
 }
 
 function RegisterPage() {
-    const host = `https://todo-app-backend-production-3bfc.up.railway.app/api`;
+    const host = `https://todo-app-backend-production-f00a.up.railway.app/api`;
     const [isLoading, setIsLoading] = useState(false);
     const navigate = useNavigate();
 

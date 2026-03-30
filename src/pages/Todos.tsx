@@ -11,7 +11,7 @@
 
 
 // function Todos() {
-//     const host= `https://todo-app-backend-production-3bfc.up.railway.app/api`
+//     const host= `https://todo-app-backend-production-f00a.up.railway.app/api`
 
 //     const loggedInUserString = localStorage.getItem("loggedInUser");
 //     const loggedInUser = loggedInUserString && JSON.parse(loggedInUserString);
@@ -286,7 +286,7 @@ import toast from 'react-hot-toast';
 import Button from '../components/ui/Button';
 
 function Todos() {
-    const host = `https://todo-app-backend-production-3bfc.up.railway.app/api`;
+    const host = `https://todo-app-backend-production-f00a.up.railway.app/api`;
     const loggedInUserString = localStorage.getItem('loggedInUser');
     const loggedInUser = loggedInUserString && JSON.parse(loggedInUserString);
 
