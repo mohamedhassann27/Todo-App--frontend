@@ -495,7 +495,7 @@ function Todos() {
             </div>
 
             {/* Todos List */}
-            {data.todos.length ? (
+            {data?.todos?.length ? (
             <div className="space-y-3">
                 {data.todos.map((todo: ITodo, index: number) => (
                 <div
