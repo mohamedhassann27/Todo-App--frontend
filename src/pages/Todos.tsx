@@ -290,6 +290,7 @@ function Todos() {
     const loggedInUserString = localStorage.getItem('loggedInUser');
     const loggedInUser = loggedInUserString && JSON.parse(loggedInUserString);
 
+
     const [todoToEdit, setTodoToEdit] = useState<ITodo>({ id: 0, title: '', description: '' });
     const [todoToRemove, setTodoToRemove] = useState<ITodo>({ id: 0, title: '', description: '' });
     const [todoToPost, setTodoToPost] = useState<ITodo>({ id: 0, title: '', description: '' });
@@ -391,10 +392,11 @@ function Todos() {
         e.preventDefault();
         const { title, description } = todoToPost;
         setIsLoading(true);
+        
         try {
         await axios.post(
             `${host}/todos`,
-            { data: { title, description, user: loggedInUser.user.id } },
+            { data: { title, description, user: loggedInUser.user.id}},
             { headers: { Authorization: `Bearer ${loggedInUser.jwt}` } }
         );
         toast.success('Todo created successfully');
@@ -433,6 +435,9 @@ function Todos() {
         setIsGenerateLoading(false);
         }
     };
+
+console.log(loggedInUser);
+
 
     if (isPending) return <TodosSkeleton />;
     if (error) return <div className="text-center text-red-400 mt-10">An error occurred: {error.message}</div>;
